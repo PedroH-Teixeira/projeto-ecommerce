@@ -1,2 +1,2 @@
 # projeto-ecommerce
- Criando uma loja virtual em python para estudos
+ Criando uma loja virtual em python para estudos.

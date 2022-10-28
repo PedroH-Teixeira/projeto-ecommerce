@@ -15,7 +15,7 @@ class Produto(models.Model):
         upload_to = 'produto_imagens/%Y/%m/', blank=True, null=True)
     slug = models.SlugField(unique=True, blank=True, null=True)
     preco_marketing = models.FloatField(verbose_name='Preço')
-    preco_marketing_promocial = models.FloatField(default=0, verbose_name='Preço com desconto')
+    preco_marketing_promocional = models.FloatField(default=0, verbose_name='Preço com desconto')
     tipo = models.CharField(
         default = 'V',
         max_length = 1,

@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect, reverse, get_list_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views import View
@@ -35,9 +35,9 @@ class AdicionarAoCarrinho(View):
             )
             return redirect(http_referer)
 
-        variacao =get_list_or_404(models.Variacao, id=variacao_id)
-        produto = variacao.produto
+        variacao = get_object_or_404(models.Variacao, id=variacao_id)
         variacao_estoque = variacao.estoque
+        produto = variacao.produto
 
         produto_id = produto.id
         produto_nome = produto.nome
@@ -49,7 +49,7 @@ class AdicionarAoCarrinho(View):
         imagem = produto.imagem
 
         if imagem:
-            imagem = imagem.nome
+            imagem = imagem.name
         else:
             imagem = ''
 
@@ -94,8 +94,7 @@ class AdicionarAoCarrinho(View):
                 'preco_quantitativo_promocional': preco_unitario_promocional,
                 'quantidade': 1,
                 'slug': slug,
-                'imagem': imagem
-
+                'imagem': imagem,
             }
 
         self.request.session.save()

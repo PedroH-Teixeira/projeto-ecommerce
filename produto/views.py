@@ -4,7 +4,6 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views import View
 from django.contrib import messages
-from . import models
 
 # Create your views here.
 

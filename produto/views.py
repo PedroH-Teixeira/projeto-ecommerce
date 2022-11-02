@@ -4,6 +4,7 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views import View
 from django.contrib import messages
+from . import models
 
 # Create your views here.
 
@@ -98,10 +99,7 @@ class AdicionarAoCarrinho(View):
 
         self.request.session.save()
 
-        messages.success(
-            self.request,
-            'Produto adicionado ao carrinho'
-        )
+        messages.success(self.request, 'Produto adicionado ao carrinho')
 
         return redirect(http_referer)
 
